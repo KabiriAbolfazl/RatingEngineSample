@@ -8,10 +8,10 @@ namespace RatingEngineSample.Implementations
         internal IRatingEngine _ratingEngine;
         private readonly ILogger _logger;
         private readonly IReader _reader;
-        public RatingEngine()
+        public RatingEngine(ILogger logger,IReader reader)
         {
-            _logger = new ConsoleLogger();
-            _reader = new JsonReader();
+            _reader = reader;
+            _logger = logger;
         }
         public decimal Rate()
         {
